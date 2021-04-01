@@ -1,4 +1,7 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:pet_story/widget/home/home_bottom_navigation_bar.dart';
 
 class Home extends StatefulWidget {
@@ -7,6 +10,10 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  var _image;
+
+  final picker = ImagePicker();
+
   int currentIndex = 0;
 
   final List<BottomNavigationBarItem> bottomTabs = [
@@ -41,6 +48,19 @@ class _HomeState extends State<Home> {
     });
   }
 
+  /*拍照*/
+  Future getImage() async {
+    final pickedFile = await picker.getImage(source: ImageSource.camera);
+
+    setState(() {
+      if (pickedFile != null) {
+        _image = File(pickedFile.path);
+      } else {
+        print('No image selected.');
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -51,6 +71,7 @@ class _HomeState extends State<Home> {
             AssetImage('images/home/taking_pictures.png'),
           ),
           onPressed: () {
+            getImage();
             print('点击拍照');
           },
         ),
@@ -72,6 +93,14 @@ class _HomeState extends State<Home> {
           ),
         ],
       ),
+      floatingActionButton: FloatingActionButton(
+        child: Icon(Icons.add),
+        shape: CircleBorder(),
+        onPressed: () {
+          print('111');
+        },
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       bottomNavigationBar: HomeBottomNavigationBar(bottomTabs, _onTapHander),
       body: Center(
         child: tabBodies[currentIndex],
