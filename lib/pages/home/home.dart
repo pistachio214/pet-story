@@ -66,7 +66,7 @@ class _HomeState extends State<Home> {
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
-          tooltip: '拍照',
+          // tooltip: '拍照',
           icon: ImageIcon(
             AssetImage('images/home/taking_pictures.png'),
           ),
@@ -83,24 +83,22 @@ class _HomeState extends State<Home> {
         ),
         actions: [
           IconButton(
-            tooltip: '添加好友',
-            icon: ImageIcon(
-              AssetImage('images/home/add_friend.png'),
-            ),
+            // tooltip: '添加好友',
+            icon: Icon(Icons.create_outlined),
             onPressed: () {
-              print('点击添加新朋友');
+              print('点击添加新文章');
             },
           ),
         ],
       ),
-      floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.add),
-        shape: CircleBorder(),
-        onPressed: () {
-          print('111');
-        },
-      ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      // floatingActionButton: FloatingActionButton(
+      //   child: Icon(Icons.add),
+      //   shape: CircleBorder(),
+      //   onPressed: () {
+      //     print('111');
+      //   },
+      // ),
+      // floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       bottomNavigationBar: HomeBottomNavigationBar(bottomTabs, _onTapHander),
       body: Center(
         child: tabBodies[currentIndex],
