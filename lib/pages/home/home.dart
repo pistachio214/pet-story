@@ -2,7 +2,8 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:pet_story/widget/home/home_bottom_navigation_bar.dart';
+import 'package:pet_story/widget/home_bottom_navigation_bar.dart';
+import 'package:pet_story/widget/index/article_list.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -36,7 +37,7 @@ class _HomeState extends State<Home> {
   ];
 
   final List tabBodies = [
-    Text('首页'),
+    ArticleList(),
     Text('消息'),
     Text('发现'),
     Text('我的'),

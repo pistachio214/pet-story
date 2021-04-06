@@ -16,9 +16,10 @@ class PetStory extends StatelessWidget {
         primarySwatch: createMaterialColor(Color.fromRGBO(252, 214, 67, 1.0)),
       ),
       debugShowCheckedModeBanner: false,
-      home: StartUp(),
+      // home: StartUp(),
       //注册路由
       routes: {
+        "/": (context) => Home(),
         "startup": (context) => StartUp(),
         "home": (context) => Home(),
       },
