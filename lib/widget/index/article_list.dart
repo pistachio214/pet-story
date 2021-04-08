@@ -207,8 +207,9 @@ class _ArticleListState extends State<ArticleList> {
 
   String changeDate(int timestamp) {
     //将时间戳转化为日期
-    var strtime = DateTime.fromMillisecondsSinceEpoch(timestamp);
-
-    return strtime.toLocal().toString().substring(0, 16);
+    return DateTime.fromMillisecondsSinceEpoch(timestamp)
+        .toLocal()
+        .toString()
+        .substring(0, 16);
   }
 }
