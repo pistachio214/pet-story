@@ -35,6 +35,9 @@ dependencies:
   # 相机插件
   image_picker: ^0.7.3
 
+  # 视频播放
+  fijkplayer: ^0.8.7
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

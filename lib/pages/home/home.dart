@@ -66,6 +66,7 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        centerTitle: true,
         leading: IconButton(
           // tooltip: '拍照',
           icon: ImageIcon(
@@ -92,14 +93,6 @@ class _HomeState extends State<Home> {
           ),
         ],
       ),
-      // floatingActionButton: FloatingActionButton(
-      //   child: Icon(Icons.add),
-      //   shape: CircleBorder(),
-      //   onPressed: () {
-      //     print('111');
-      //   },
-      // ),
-      // floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       bottomNavigationBar: HomeBottomNavigationBar(bottomTabs, _onTapHander),
       body: Center(
         child: tabBodies[currentIndex],

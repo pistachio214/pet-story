@@ -1,5 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:pet_story/widget/index/expandable_text.dart';
+import 'package:pet_story/widget/index/nine_picture.dart';
+import 'package:pet_story/widget/index/video_screen.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 
 import './../../models/articles.dart';
@@ -72,7 +75,6 @@ class _ArticleListState extends State<ArticleList> {
   }
 
   Widget _listItemBuilder(BuildContext context, int index) {
-    print(lists[index].images.length);
     return Container(
       margin: EdgeInsets.only(top: 10.0),
       padding: EdgeInsets.only(left: 5.0, bottom: 10.0),
@@ -102,29 +104,33 @@ class _ArticleListState extends State<ArticleList> {
                       ),
                     ),
                   ),
-                  Column(
-                    children: [
-                      Container(
-                        padding: EdgeInsets.only(left: 8.0),
-                        child: Text(
-                          lists[index].nickname,
-                          style: TextStyle(
-                            color: Color.fromRGBO(51, 51, 51, 1),
-                            fontSize: 15.0,
+                  Container(
+                    child: Column(
+                      children: [
+                        Container(
+                          constraints: BoxConstraints(minWidth: 100),
+                          alignment: Alignment.topLeft,
+                          padding: EdgeInsets.only(left: 8.0),
+                          child: Text(
+                            lists[index].nickname,
+                            style: TextStyle(
+                              color: Color.fromRGBO(51, 51, 51, 1),
+                              fontSize: 15.0,
+                            ),
                           ),
                         ),
-                      ),
-                      Container(
-                        padding: EdgeInsets.only(left: 8.0),
-                        child: Text(
-                          changeDate(lists[index].created_at),
-                          style: TextStyle(
-                            color: Color.fromRGBO(153, 153, 153, 1.0),
-                            fontSize: 11.0,
+                        Container(
+                          padding: EdgeInsets.only(left: 8.0),
+                          child: Text(
+                            changeDate(lists[index].created_at),
+                            style: TextStyle(
+                              color: Color.fromRGBO(153, 153, 153, 1.0),
+                              fontSize: 11.0,
+                            ),
                           ),
-                        ),
-                      )
-                    ],
+                        )
+                      ],
+                    ),
                   ),
                 ],
               )),
@@ -132,54 +138,29 @@ class _ArticleListState extends State<ArticleList> {
           Container(
             margin: EdgeInsets.only(top: 8.0),
             alignment: Alignment.topLeft,
-            child: Text(
-              '${lists[index].text_title}',
+            child: ExpandableText(
+              text: '${lists[index].text_title}',
+              maxLines: 5,
               style: TextStyle(
                 fontSize: 18.0,
                 color: Color.fromRGBO(51, 51, 51, 1.0),
               ),
             ),
           ),
-          //图片 or 视频区
+          //图片区
           Offstage(
             offstage: lists[index].images.isEmpty ? true : false,
-            child: SingleChildScrollView(
-              child: Column(
-                children: [
-                  buildGrid(lists[index].images),
-                ],
-              ),
-            ),
+            child: NinePicture(lists[index].images),
+          ),
+          //视频区 暂不开放此功能(功能不够完善)
+          Offstage(
+            offstage: lists[index].videos == null ? true : false,
+            child: VideoScreen(url: lists[index].videos),
           ),
           //转发、评论、点赞
           Container(),
         ],
       ),
-    );
-  }
-
-  Widget buildGrid(List formList) {
-    //先建一个数组用于存放循环生成的widget
-    List<Widget> tiles = [];
-    for (var item in formList) {
-      tiles.add(
-        Column(
-          children: [
-            Container(
-              margin: EdgeInsets.only(left: 5.0),
-              child: Image.network(
-                item,
-                width: 100,
-                height: 100,
-                fit: BoxFit.cover,
-              ),
-            ),
-          ],
-        ),
-      );
-    }
-    return Row(
-      children: tiles,
     );
   }
 
