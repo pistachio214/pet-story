@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:pet_story/widget/index/action_button.dart';
 import 'package:pet_story/widget/index/expandable_text.dart';
 import 'package:pet_story/widget/index/nine_picture.dart';
+
 // import 'package:pet_story/widget/index/video_screen.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 
@@ -14,7 +15,8 @@ class ArticleList extends StatefulWidget {
 }
 
 class _ArticleListState extends State<ArticleList> {
-  RefreshController _refreshController = RefreshController(initialRefresh: false);
+  RefreshController _refreshController =
+      RefreshController(initialRefresh: false);
 
   void _onRefresh() async {
     // monitor network fetch
@@ -94,7 +96,9 @@ class _ArticleListState extends State<ArticleList> {
                     height: 40,
                     decoration: BoxDecoration(
                       color: Colors.transparent,
-                      borderRadius: BorderRadius.all(Radius.circular(50.0)),
+                      borderRadius: BorderRadius.all(
+                        Radius.circular(50.0),
+                      ),
                       border: Border.all(
                         color: Colors.red[100],
                         width: 0,

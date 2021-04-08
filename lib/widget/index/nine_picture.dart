@@ -13,7 +13,8 @@ class NinePicture extends StatelessWidget {
   }
 
   void showPhoto(BuildContext context, String img) {
-    Navigator.push(context, MaterialPageRoute<void>(builder: (BuildContext context) {
+    Navigator.push(context,
+        MaterialPageRoute<void>(builder: (BuildContext context) {
       return GestureDetector(
         child: SizedBox.expand(
           child: Hero(
@@ -48,7 +49,8 @@ class NinePicture extends StatelessWidget {
     }
     return Container(
       width: double.infinity,
-      height: (MediaQuery.of(context).size.width / _crossAxisCount + 2.0) * (list.length / _crossAxisCount).ceil(),
+      height: (MediaQuery.of(context).size.width / _crossAxisCount + 2.0) *
+          (list.length / _crossAxisCount).ceil(),
       child: GridView.count(
         physics: ClampingScrollPhysics(),
         crossAxisCount: _crossAxisCount,
