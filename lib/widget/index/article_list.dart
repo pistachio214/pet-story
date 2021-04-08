@@ -1,8 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:pet_story/widget/index/action_button.dart';
 import 'package:pet_story/widget/index/expandable_text.dart';
 import 'package:pet_story/widget/index/nine_picture.dart';
-import 'package:pet_story/widget/index/video_screen.dart';
+// import 'package:pet_story/widget/index/video_screen.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 
 import './../../models/articles.dart';
@@ -153,12 +154,52 @@ class _ArticleListState extends State<ArticleList> {
             child: NinePicture(lists[index].images),
           ),
           //视频区 暂不开放此功能(功能不够完善)
-          Offstage(
-            offstage: lists[index].videos == null ? true : false,
-            child: VideoScreen(url: lists[index].videos),
+          // Offstage(
+          //   offstage: lists[index].videos == null ? true : false,
+          //   child: VideoScreen(url: lists[index].videos),
+          // ),
+          // 分割线
+          Container(
+            margin: EdgeInsets.only(top: 8.0),
+            padding: EdgeInsets.only(right: 5.0),
+            child: Divider(
+              height: 1.0,
+              color: Color.fromRGBO(230, 230, 230, 1.0),
+            ),
           ),
           //转发、评论、点赞
-          Container(),
+          Container(
+            height: 40.0,
+            padding: EdgeInsets.only(top: 5.0),
+            child: ActionButton(
+              share: lists[index].share_number,
+              comments: lists[index].comments_number,
+              like: lists[index].like_number,
+              callBack: (key, num) {
+                setState(() {
+                  switch (key) {
+                    case 'share':
+                      {
+                        lists[index].share_number = num;
+                      }
+                      break;
+
+                    case 'comments':
+                      {
+                        lists[index].comments_number = num;
+                      }
+                      break;
+
+                    case 'like':
+                      {
+                        lists[index].like_number = num;
+                      }
+                      break;
+                  }
+                });
+              },
+            ),
+          ),
         ],
       ),
     );

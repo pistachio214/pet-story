@@ -60,6 +60,9 @@ flutter:
     - images/home/taking_pictures.png
     - images/home/add_friend.png
     - images/home/home.png
+    - images/home/like.png
+    - images/home/share.png
+    - images/home/comment.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
