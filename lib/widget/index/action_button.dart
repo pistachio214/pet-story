@@ -3,25 +3,32 @@ import 'package:flutter/material.dart';
 class ActionButton extends StatefulWidget {
   final int share;
 
+  final int shareStatus;
+
   final int comments;
+
+  final int commentsStatus;
 
   final int like;
 
+  final int likeStatus;
+
   final Function(String, int) callBack;
 
-  ActionButton({@required this.share, @required this.comments, @required this.like, @required this.callBack});
+  ActionButton(
+      {@required this.share,
+      @required this.shareStatus,
+      @required this.comments,
+      @required this.commentsStatus,
+      @required this.like,
+      @required this.likeStatus,
+      @required this.callBack});
 
   @override
   _ActionButtonState createState() => _ActionButtonState();
 }
 
 class _ActionButtonState extends State<ActionButton> {
-  bool defaultShare = true;
-
-  bool defaultComments = true;
-
-  bool defaultLike = true;
-
   @override
   Widget build(BuildContext context) {
     ButtonStyle buttonStyle = ButtonStyle(
@@ -61,8 +68,8 @@ class _ActionButtonState extends State<ActionButton> {
             size: 14.0,
           ),
           label: widget.share == 0 ? Text('分享') : Text('${widget.share}'),
-          onPressed: defaultShare ? () => _addShare() : null,
-          style: defaultShare ? buttonStyle : buttonStyleSelected,
+          onPressed: widget.shareStatus == 0 ? () => _addShare() : null,
+          style: widget.shareStatus == 0 ? buttonStyle : buttonStyleSelected,
         ),
         ElevatedButton.icon(
           icon: Icon(
@@ -70,8 +77,8 @@ class _ActionButtonState extends State<ActionButton> {
             size: 14.0,
           ),
           label: widget.comments == 0 ? Text('评论') : Text('${widget.comments}'),
-          onPressed: defaultComments ? () => _addComments() : null,
-          style: defaultComments ? buttonStyle : buttonStyleSelected,
+          onPressed: widget.commentsStatus == 0 ? () => _addComments() : null,
+          style: widget.commentsStatus == 0 ? buttonStyle : buttonStyleSelected,
         ),
         ElevatedButton.icon(
           icon: Icon(
@@ -79,8 +86,8 @@ class _ActionButtonState extends State<ActionButton> {
             size: 14.0,
           ),
           label: widget.like == 0 ? Text('喜欢') : Text('${widget.like}'),
-          onPressed: defaultLike ? () => _addLike() : null,
-          style: defaultLike ? buttonStyle : buttonStyleSelected,
+          onPressed: widget.likeStatus == 0 ? () => _addLike() : null,
+          style: widget.likeStatus == 0 ? buttonStyle : buttonStyleSelected,
         ),
       ],
     );
@@ -88,22 +95,13 @@ class _ActionButtonState extends State<ActionButton> {
 
   void _addShare() {
     widget.callBack('share', widget.share + 1);
-    setState(() {
-      defaultShare = !defaultShare;
-    });
   }
 
   void _addComments() {
-    setState(() {
-      defaultComments = !defaultComments;
-    });
     widget.callBack('comments', widget.comments + 1);
   }
 
   void _addLike() {
-    setState(() {
-      defaultLike = !defaultLike;
-    });
     widget.callBack('like', widget.like + 1);
   }
 }

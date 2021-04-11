@@ -177,26 +177,32 @@ class _ArticleListState extends State<ArticleList> {
             padding: EdgeInsets.only(top: 5.0),
             child: ActionButton(
               share: lists[index].share_number,
+              shareStatus: lists[index].share_status,
               comments: lists[index].comments_number,
+              commentsStatus: lists[index].comments_status,
               like: lists[index].like_number,
+              likeStatus: lists[index].like_status,
               callBack: (key, num) {
                 setState(() {
                   switch (key) {
                     case 'share':
                       {
                         lists[index].share_number = num;
+                        lists[index].share_status = 1;
                       }
                       break;
 
                     case 'comments':
                       {
                         lists[index].comments_number = num;
+                        lists[index].comments_status = 1;
                       }
                       break;
 
                     case 'like':
                       {
                         lists[index].like_number = num;
+                        lists[index].like_status = 1;
                       }
                       break;
                   }
