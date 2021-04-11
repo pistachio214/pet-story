@@ -9,11 +9,7 @@ class ActionButton extends StatefulWidget {
 
   final Function(String, int) callBack;
 
-  ActionButton(
-      {@required this.share,
-      @required this.comments,
-      @required this.like,
-      @required this.callBack});
+  ActionButton({@required this.share, @required this.comments, @required this.like, @required this.callBack});
 
   @override
   _ActionButtonState createState() => _ActionButtonState();
