@@ -89,6 +89,7 @@ class _HomeState extends State<Home> {
             icon: Icon(Icons.create_outlined),
             onPressed: () {
               print('点击添加新文章');
+              Navigator.pushNamed(context, "addDynamic");
             },
           ),
         ],
