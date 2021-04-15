@@ -34,7 +34,11 @@ class _AddDyNamicState extends State<AddDyNamic> {
             ),
             onPressed: () {
               String content = _contentController.text;
-              print(content);
+              if (content.isEmpty) {
+                print('没有内容');
+              } else {
+                print(content);
+              }
             },
           )
         ],

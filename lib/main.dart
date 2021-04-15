@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:pet_story/pages/home/add_%20dynamic.dart';
-import 'package:pet_story/pages/home/home.dart';
-import 'package:pet_story/pages/startup/start_up.dart';
+import './pages/home/home.dart';
+import './pages/startup/start_up.dart';
+import './pages/home/add_dynamic.dart';
+import './pages/home/dynamic_detail.dart';
 
 void main() {
   runApp(PetStory());
@@ -24,6 +25,7 @@ class PetStory extends StatelessWidget {
         "startup": (context) => StartUp(),
         "home": (context) => Home(),
         "addDynamic": (context) => AddDyNamic(),
+        "dynamicDetail": (context) => DynamicDetail(),
       },
     );
   }

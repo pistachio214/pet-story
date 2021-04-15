@@ -32,8 +32,7 @@ class Article {
 
 List<Article> lists = [
   Article(
-    avatar:
-        'https://img0.baidu.com/it/u=2707060403,1532872303&fm=26&fmt=auto&gp=0.jpg',
+    avatar: 'https://img0.baidu.com/it/u=2707060403,1532872303&fm=26&fmt=auto&gp=0.jpg',
     nickname: '李寻欢',
     type: 4,
     text_title:
@@ -70,11 +69,8 @@ List<Article> lists = [
         'https://pics0.baidu.com/feed/a686c9177f3e6709665d2ed0c933213bf9dc55bf.jpeg?token=c923a2fa85ba4a5283ebede1db712492',
     nickname: '小楼一夜听春雨',
     type: 2,
-    text_title:
-        '费德勒拥有ATP史上最长连续单打世界第一周数的纪录（237周，2004–2008年间），在大满贯男子单打斩获20次冠军，11次亚军.',
-    images: [
-      'https://bkimg.cdn.bcebos.com/pic/1e30e924b899a9014c086dfc1cdc1d7b02087af45fea'
-    ],
+    text_title: '费德勒拥有ATP史上最长连续单打世界第一周数的纪录（237周，2004–2008年间），在大满贯男子单打斩获20次冠军，11次亚军.',
+    images: ['https://bkimg.cdn.bcebos.com/pic/1e30e924b899a9014c086dfc1cdc1d7b02087af45fea'],
     videos: null,
     share_number: 2,
     share_status: 0,
@@ -85,8 +81,7 @@ List<Article> lists = [
     created_at: 1617636203825,
   ),
   Article(
-    avatar:
-        'https://bkimg.cdn.bcebos.com/pic/4e4a20a4462309f732280294720e0cf3d6cad6f5',
+    avatar: 'https://bkimg.cdn.bcebos.com/pic/4e4a20a4462309f732280294720e0cf3d6cad6f5',
     nickname: 'Andy Murray',
     type: 3,
     text_title: '安迪·穆雷（Andy Murray），1987年5月15日出生于英国苏格兰邓布兰，英国著名男子职业网球运动员.',
