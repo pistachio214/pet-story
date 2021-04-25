@@ -46,7 +46,7 @@ class _DynamicDetailState extends State<DynamicDetail> {
               decoration: BoxDecoration(
                 color: Color.fromRGBO(255, 255, 255, 1.0),
               ),
-              child: Text('121212'),
+              child: Text('三个操作的信息'),
             )
           ],
         ),

@@ -30,12 +30,15 @@ class _HideTextState extends State<HideText> {
             ),
             Align(
               alignment: Alignment.centerLeft,
-              child: FlatButton(
+              child: TextButton(
                 onPressed: () {
                   _isShowText();
                 },
                 child: Text("收起"),
-                textColor: Colors.grey,
+                style: ButtonStyle(
+                  foregroundColor: MaterialStateProperty.all(Colors.grey),
+                ),
+//                textColor: Colors.grey,
               ),
             ),
           ],
@@ -51,12 +54,14 @@ class _HideTextState extends State<HideText> {
             ),
             Align(
               alignment: Alignment.centerLeft,
-              child: FlatButton(
+              child: TextButton(
                 onPressed: () {
                   _isShowText();
                 },
                 child: Text("全文"),
-                textColor: Colors.grey,
+                style: ButtonStyle(
+                  foregroundColor: MaterialStateProperty.all(Colors.grey),
+                ),
               ),
             ),
           ],
@@ -75,7 +80,10 @@ class _HideTextState extends State<HideText> {
   bool IsExpansion(String text) {
     TextPainter _textPainter = TextPainter(
         maxLines: 3,
-        text: TextSpan(text: text, style: TextStyle(fontSize: 16.0, color: Colors.black)),
+        text: TextSpan(
+          text: text,
+          style: TextStyle(fontSize: 16.0, color: Colors.black),
+        ),
         textDirection: TextDirection.ltr)
       ..layout(maxWidth: 100, minWidth: 50);
     if (_textPainter.didExceedMaxLines) {

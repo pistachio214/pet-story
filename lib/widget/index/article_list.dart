@@ -1,11 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:pet_story/widget/index/action_button.dart';
 import 'package:pet_story/widget/index/article_info.dart';
-import 'package:pet_story/widget/index/expandable_text.dart';
-import 'package:pet_story/widget/index/nine_picture.dart';
 
-// import 'package:pet_story/widget/index/video_screen.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 
 import './../../models/articles.dart';
@@ -51,7 +47,7 @@ class _ArticleListState extends State<ArticleList> {
             builder: (BuildContext context, LoadStatus mode) {
               Widget body;
               if (mode == LoadStatus.idle) {
-                body = Text("上拉加载");
+                body = Text("人家也是有底线的啦 ╮(๑•́ ₃•̀๑)╭");
               } else if (mode == LoadStatus.loading) {
                 body = CupertinoActivityIndicator();
               } else if (mode == LoadStatus.failed) {
